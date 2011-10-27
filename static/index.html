@@ -11,9 +11,9 @@
 
     <title>Links</title>
 
-    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/global.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/global.css" />
   </head>
   <body>
 
@@ -36,46 +36,54 @@
         <div class="templateDateGroup">
           <div class="dateInfo">August 22, 2011</div>
           <div class="linkInfo">
-            <img onerror="hideMe()" class="favicon" />
             <div class="fullInfo">
+
+              <div class="embedView"></div>
+              <br style="clear: both" />
+
               <div class="linkTitle">
+                <img onload="showMe()" class="sourceIcon favicon" />
                 <a href="" target="_blank" href=""><span class="linkDescription">This is the link description</span></a>
               </div>
-              <div class="linkLine"><a target="_blank" href="" class="expandedLink">http://example.com</a></div>
-              <div class="linkDetails"><img class="providerIcon"/><span class="linkFrom"/></div>
-              <div class="viewMore">&#9654; View</div>
+
+              <p class="linkSummary"></p>
+
+              <div class="linkLine">
+                <a target="_blank" href="" class="expandedLink">http://example.com</a>
+              </div>
+
+              <div class="linkDetails">
+                <img class="providerIcon" /><span class="linkFrom"></span>
+              </div>
+
             </div>
-          </div>
-          <div class="embedView"></div>
           </div>
         </div>
       </div>
       <div id="loading"></div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script src="js/string.js"></script>
-    <script src="js/date.js"></script>
+    <script src="/static/js/jquery-1.6.2.min.js"></script>
+    <script src="/static/js/extensions/string.js"></script>
+    <script src="/static/js/extensions/date.js"></script>
     <script src="js/pure_min.js"></script>
     <script defer src="js/allAlone.js"></script>
-    <script defer src="js/config.js"></script>
-
 
     <script>
-      $("#main").scroll(function(event) {
-        var element = $(event.target);
-
-        var currentSection = element.find(".dateGroup").map(function(index, group) {
-          // console.log($(group))
-          console.log("Group Offset: ", $(group).offset().top, ", Scroll Top: ", $(event.target).scrollTop())
-        })
-        console.log(currentSection)
-        // .(function(group) {
-        //           console.log(group)
-        //           return true;
-        //         })
-        // console.log("scrolling")
-      })
+      // $("#main").scroll(function(event) {
+      //   var element = $(event.target);
+      //
+      //   var currentSection = element.find(".dateGroup").map(function(index, group) {
+      //     // console.log($(group))
+      //     console.log("Group Offset: ", $(group).offset().top, ", Scroll Top: ", $(event.target).scrollTop())
+      //   })
+      //   console.log(currentSection)
+      //   // .(function(group) {
+      //   //           console.log(group)
+      //   //           return true;
+      //   //         })
+      //   // console.log("scrolling")
+      // })
     </script>
 
   </body>
