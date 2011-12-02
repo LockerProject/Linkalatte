@@ -75,7 +75,7 @@ function queryLinksCollection (queryString) {
     log("Querying: " + $.param({q:queryString||""}));
     $(".dateGroup").remove();
     $("#infoMsg").hide();
-    var url = baseUrl + "/Me/" + collectionHandle + "/search?q=" + queryString;
+    var url = baseUrl + "/Me/" + collectionHandle + "/search?full=true&q=" + queryString;
     if (!queryString) url = baseUrl + "/Me/" + collectionHandle + "/?full=true&limit=100";
     $.ajax({
       "url": url,
