@@ -34,7 +34,6 @@ function displayLinksArray(data)
                 curLinks = newDateGroup.links;
                 curDate = nextDate;
             }
-
             curLinks.push(data[i]);
         }
         $("#results").render({groups:dateGroups,groupClass:"dateGroup"}, resultsTemplate);
@@ -75,13 +74,23 @@ function queryLinksCollection (queryString) {
     log("Querying: " + $.param({q:queryString||""}));
     $(".dateGroup").remove();
     $("#infoMsg").hide();
-    var url = baseUrl + "/Me/" + collectionHandle + "/search?full=true&q=" + queryString;
-    if (!queryString) url = baseUrl + "/Me/" + collectionHandle + "/?full=true&limit=100";
+    var url = baseUrl + "/Me/" + collectionHandle + "/search?full=true&snippet=true&q=" + queryString;
+    if (!queryString) url = baseUrl + "/Me/" + collectionHandle + "/?full=true&limit=50";
     $.ajax({
       "url": url,
       type: "GET",
       dataType: "json",
-      success: displayLinksArray,
+      success: function(results){
+          if(!queryString) return displayLinksArray(results);
+          console.log(results);
+          var data = [];
+          for(var i=0;i<results.length;i++)
+          {
+              results[i].data.snippet = results[i].snippet;
+              data.push(results[i].data);
+          }
+          displayLinksArray(data);
+      },
       error: function() {
         //called when there is an error
       }
