@@ -9,5 +9,5 @@
     "handle":"linkalatte",
     "viewer":"links",
     "github":"https://github.com/LockerProject/Linkalatte",
-    "author":"Singly, Inc"
+    "author":"Singly, Inc."
 }
