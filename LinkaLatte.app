@@ -8,5 +8,6 @@
     "autoInstall":true,
     "handle":"linkalatte",
     "viewer":"links",
-    "author":"Singly"
+    "github":"https://github.com/LockerProject/Linkalatte",
+    "author":"Singly, Inc"
 }
